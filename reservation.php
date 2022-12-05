@@ -24,7 +24,7 @@ Class Reservation
     }
     public function __toString()
     {
-        return "<b>Hotel : ".$this->get_hotel()."/ </b>".$this->get_room()." du ".$this->get_checkin()." au ".$this->get_checkout()."<br>";
+        return "<b>Hotel : ".$this->get_hotel()."/ </b>".$this->get_room()." from ".$this->get_checkin()." until ".$this->get_checkout()."<br>";
     }
 
     /**

@@ -10,6 +10,7 @@ Class Room
     private $_nb_beds;
     private $_wifi;
     private $_price;
+    private $_availability;
 
     public function __construct($hotel, int $numero, int $nb_beds, $wifi, $price)
     {
@@ -19,6 +20,7 @@ Class Room
         $this->_nb_beds=$nb_beds;
         $this->_wifi=$wifi;
         $this->_price=$price;
+        $this->_availability=0;
     }
     public function __toString()
     {
