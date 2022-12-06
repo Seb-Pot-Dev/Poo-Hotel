@@ -11,7 +11,7 @@ Class Room
     private $_wifi;
     private $_price;
     private $_availability;
-
+// CONSTRUCT
     public function __construct($hotel, int $numero, int $nb_beds, $wifi, int $price)
     {
         $this->_hotel=$hotel;
@@ -22,18 +22,17 @@ Class Room
         $this->_price=$price;
         $this->_availability=true;
     }
-    public function __toString()
-    {
-        return "Room number: ".$this->_numero." (".$this->_nb_beds." beds - wifi: ".$this->_wifi."). Price :".$this->_price;
-    }
+    // When creating a new reservation, make availability false. (considering its use on Class Reservation)
     public function addReservation()
     {
         $this->_availability=false;
     }
+    // GETTER
     public function get_price_room()
     {
         return $this->_price;
     }
+    // Check if the room is available and return adequate sentence.
     public function CheckAvailability()
     {
         if($this->_availability==false)
@@ -44,5 +43,10 @@ Class Room
         {
             return "<br>**********************<br><b>Room number ".$this->_numero."</b> at <u>".$this->_hotel."</u> is available.<br>**********************<br>";
         }
+    }
+    // to STRING
+    public function __toString()
+    {
+        return "Room number: ".$this->_numero." (".$this->_nb_beds." beds - wifi: ".$this->_wifi."). Price :".$this->_price;
     }
 }

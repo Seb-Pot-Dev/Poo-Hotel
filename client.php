@@ -18,24 +18,21 @@ class Client
     // DISPLAY
     public function display_all_reservations()
     {
-        echo "<u>Réservation de <b>".$this."</b><br></u>";
+        echo "<u><b>".$this."'s reservations :</b><br></u>";
         $total=0;
         foreach($this->_reservations as $reservation)
         {
             echo $reservation;
             $total+=$reservation->get_price_this_reservation();
         }
-        return "Le prix total est : ".$total." €";
+        return "Total price for all reservations is ".$total." €";
     }
-    // Add
+    // Add reservation considering its use in Class Reservation
     public function addReservation($reservation)
     {
         $this->_reservations[]=$reservation;
     }
-    public function addPrice($price)
-    {
-        $this->_price_all_client_reservations[]=$price;
-    }
+
     // GETTERS
     public function getReservation()
     {

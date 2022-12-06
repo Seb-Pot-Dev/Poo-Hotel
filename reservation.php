@@ -11,6 +11,7 @@ Class Reservation
     private $_checkin;
     private $_checkout;
 
+    //CONSTRUCT
     public function __construct(Client $client, Hotel $hotel, Room $room, $checkin, $checkout)
     {
         $this->_client = $client;
@@ -29,50 +30,32 @@ Class Reservation
         $price=$nbnight*$this->_room->get_price_room();
         return $price;
     }
-    
-    /**
-     * Get the value of _client
-     */ 
+
     public function get_client()
     {
         return $this->_client;
     }
-    
-    /**
-     * Get the value of _hotel
-     */ 
+
     public function get_hotel()
     {
         return $this->_hotel;
     }
     
-    /**
-     * Get the value of _room
-     */ 
     public function get_room()
     {
         return $this->_room;
     }
     
-    /**
-     * Get the value of _checkin
-     */ 
     public function get_checkin()
     {
         return $this->_checkin->format('d-m-Y');
     }
     
-    /**
-     * Get the value of _checkout
-     */ 
     public function get_checkout()
     {
         return $this->_checkout->format('d-m-Y');
     }
 
-    /**
-     * Get the value of _all_prices
-     */ 
     public function get_all_prices()
     {
         $result="Tout les prix";
@@ -82,6 +65,7 @@ Class Reservation
         }
         return $result;
     }
+    
     // TO STRING
     public function __toString()
     {
