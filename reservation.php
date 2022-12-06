@@ -18,15 +18,18 @@ Class Reservation
         $this->_hotel = $hotel;
         $this->_hotel->addReservation($this);
         $this->_room = $room;
-        $this->_checkin=$checkin;
-        $this->_checkout=$checkout;
-        
+        $this->_room->addReservation($this);
+        $this->_checkin=new DateTime ($checkin);
+        $this->_checkout=new DateTime ($checkout);
     }
-    public function __toString()
+    // GETTERS
+    public function get_price_this_reservation()
     {
-        return "<b>Hotel : ".$this->get_hotel()."/ </b>".$this->get_room()." from ".$this->get_checkin()." until ".$this->get_checkout()."<br>";
+        $nbnight=date_diff($this->_checkin, $this->_checkout)->d;
+        $price=$nbnight*$this->_room->get_price_room();
+        return $price;
     }
-
+    
     /**
      * Get the value of _client
      */ 
@@ -34,7 +37,7 @@ Class Reservation
     {
         return $this->_client;
     }
-
+    
     /**
      * Get the value of _hotel
      */ 
@@ -42,7 +45,7 @@ Class Reservation
     {
         return $this->_hotel;
     }
-
+    
     /**
      * Get the value of _room
      */ 
@@ -50,20 +53,38 @@ Class Reservation
     {
         return $this->_room;
     }
-
+    
     /**
      * Get the value of _checkin
      */ 
     public function get_checkin()
     {
-        return $this->_checkin;
+        return $this->_checkin->format('d-m-Y');
     }
-
+    
     /**
      * Get the value of _checkout
      */ 
     public function get_checkout()
     {
-        return $this->_checkout;
+        return $this->_checkout->format('d-m-Y');
+    }
+
+    /**
+     * Get the value of _all_prices
+     */ 
+    public function get_all_prices()
+    {
+        $result="Tout les prix";
+        foreach ($this->_all_prices as $price)
+        {
+            $result.= $price;
+        }
+        return $result;
+    }
+    // TO STRING
+    public function __toString()
+    {
+        return "<b>Hotel : ".$this->get_hotel()."/ </b>".$this->get_room()." from ".$this->get_checkin()." until ".$this->get_checkout()." Cost : ".$this->get_price_this_reservation()." <br>";
     }
 }
