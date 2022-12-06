@@ -37,7 +37,7 @@ class Hotel
     //RESERVATIONS
     public function get_all_reservation()
     {
-        $allresa="<b>Reserved rooms of ".$this.": </b><br>".$this->get_nb_rooms_reserverd()." RESERVATIONS<br>";
+        $allresa="<b>Reserved rooms of ".$this.": </b><br>"."<span class='reservation'>".$this->get_nb_rooms_reserverd()." RESERVATIONS<br></span>";
         
         foreach ($this->_reservations as $reservation)
         {

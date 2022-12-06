@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=$, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <title>Title</title>
 </head>
 <body>
@@ -62,13 +62,18 @@ $room30= new Room($hilton, 30, 2, "yes", 130);
 $resa1 = new Reservation($micka, $hilton, $room1, "11-03-2021", "15-03-2021");
 $resa2 = new Reservation($micka, $hilton, $room3, "01-04-2021", "17-04-2021");
 
-//RESULTATS:
-echo $hilton->getInfo();
-// echo $hilton->get_all_rooms();
+//AFFICHAGE
+echo "<p class='info'>".$hilton->getInfo()."</p>";
+
 echo $hilton->get_all_reservation();
+
+echo $micka->display_all_reservations();
+
+// echo $hilton->get_all_rooms();
 // echo $micka->getReservation();
 
 // echo $room1->CheckAvailability();
 // echo $resa1->get_price_this_reservation();
-echo $micka->display_all_reservations();
 // echo $resa1->get_price_this_reservation();
+
+// Check this to display all available room as an array https://stackoverflow.com/questions/34656372/php-add-multiple-objects-into-array

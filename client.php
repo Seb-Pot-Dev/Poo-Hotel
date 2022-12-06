@@ -19,6 +19,7 @@ class Client
     public function display_all_reservations()
     {
         echo "<u><b>".$this."'s reservations :</b><br></u>";
+        echo "<span class='reservation'>".$this->get_nb_client_reservations()." RESERVATIONS </span></p>";
         $total=0;
         foreach($this->_reservations as $reservation)
         {
@@ -42,6 +43,10 @@ class Client
             $resa.=$reservation;
         }
     return $resa;
+    }
+    public function get_nb_client_reservations()
+    {
+        return count($this->_reservations);
     }
     // TO STRING
     public function __toString()
