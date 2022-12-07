@@ -71,12 +71,13 @@ Class Reservation
     }
     public function get_nb_nights()
     {
-        return date_diff($this->checkin, $this->checkout);
+        $resultat = date_diff($this->_checkin, $this->_checkout);
+        return $resultat;
     }
     
     // TO STRING
     public function __toString()
     {
-        return "<b>Hotel : ".$this->get_hotel()."/ </b>".$this->get_room()." from ".$this->get_checkin()." until ".$this->get_checkout()." Cost : ".$this->get_price_this_reservation()." <br>";
+        return "<b>Hotel : ".$this->get_hotel()."/ </b>".$this->get_room()." Reserved ".$this->get_nb_nights()->d." nights, from ".$this->get_checkin()." until ".$this->get_checkout()." Cost : ".$this->get_price_this_reservation()." €<br>";
     }
 }

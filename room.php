@@ -70,7 +70,7 @@ Class Room
     // to STRING
     public function __toString()
     {
-        return "Room number: ".$this->_numero." (".$this->_nb_beds." beds - wifi: ".$this->_wifi."). Price :".$this->_price;
+        return "Room number: ".$this->_numero." (".$this->_nb_beds." beds - wifi: ".$this->_wifi."). Price for a night :".$this->_price."€.<br>";
     }
 
     /**

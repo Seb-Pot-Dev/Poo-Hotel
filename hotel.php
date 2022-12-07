@@ -78,7 +78,7 @@ class Hotel
     //DISPLAY TABLE 
     public function DisplayTableReservation()
     {
-        // sort($hotel->_rooms, SORT_NUMERIC); // trier par ordre numérique sur la clé "key"
+        echo "<br><b><u>Statut des chambres de ".$this."</b></u>";
         $table_reservation= 
         "<table border=1px>
         <thead>
@@ -90,7 +90,7 @@ class Hotel
             </tr>
         </thead>
         <tbody>";
-        foreach($this->_rooms as $room)//????)
+        foreach($this->_rooms as $room)
         $table_reservation.= // La concaténation "." avant le égal permet de concatener et de ne pas remplacer le contenu de $table_reservation, mais de lui rajouter des éléments.
             "<tr>
                 <td>Room ".$room->get_numero()."</td>
@@ -99,7 +99,7 @@ class Hotel
                 <td>".$room->get_strip_Availability()." </td>
             </tr>";
             $table_reservation.="</tbody></table>";
-    return $table_reservation;
+    return $table_reservation."<br>";
     }
 
     public function get_nb_rooms_reserverd()

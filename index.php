@@ -71,9 +71,9 @@ $resa4 = new Reservation($sebpot, $hilton, $room14, "22-11-2022", "28-11-2022");
 echo "<p class='info'>".$hilton->getInfo()."</p>";
 echo "<p class='info'>".$ibisbudget->getInfo()."</p>";
 
+
 echo $hilton->DisplayTableReservation();
 echo $ibisbudget->DisplayTableReservation();
-
 
 echo $hilton->get_all_reservation();
 echo $ibisbudget->get_all_reservation();

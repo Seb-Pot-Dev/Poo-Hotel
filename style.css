@@ -26,6 +26,9 @@
   margin: 5px;
   padding: 2px;
 }
+.table{
+  background-color: lightgray;
+}
 #tableheader {
   color: grey;
 }
