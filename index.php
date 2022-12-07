@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=$, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Title</title>
+    <script src="https://kit.fontawesome.com/a45e9c27c8.js" crossorigin="anonymous"></script>
+    <title>My Hotels</title>
 </head>
 <body>
     
@@ -21,11 +22,13 @@ spl_autoload_register(function ($class_name) {
 });
 //CLIENT
 $micka = new Client("Micka", "MURMANN");
-
+$sebpot = new Client ("Seb", "Pot");
 //HOTEL
 $hilton = new Hotel("Hilton Strasbourg", "****", "10 route de la gare", 30);
-
+$ibisbudget = new Hotel ("Ibis Budget Strasbourg", "*", "3 rue pauvre", 2);
 //ROOMS
+$room32 = new Room ($ibisbudget, 1, 1, "yes", 59);
+$room31 = new Room ($ibisbudget, 1, 1, "no", 49);
 $room1 = new Room($hilton, 1, 1, "no", 120);
 $room2 = new Room($hilton, 2, 1, "no", 120);
 $room3 = new Room($hilton, 3, 2, "no", 120);
@@ -61,13 +64,22 @@ $room30= new Room($hilton, 30, 2, "yes", 130);
 //RESERVATIONS
 $resa1 = new Reservation($micka, $hilton, $room1, "11-03-2021", "15-03-2021");
 $resa2 = new Reservation($micka, $hilton, $room3, "01-04-2021", "17-04-2021");
+$resa3 = new Reservation($sebpot, $ibisbudget, $room32, "23-12-2022", "03-01-2023");
+$resa4 = new Reservation($sebpot, $hilton, $room14, "22-11-2022", "28-11-2022");
 
 //AFFICHAGE
 echo "<p class='info'>".$hilton->getInfo()."</p>";
+echo "<p class='info'>".$ibisbudget->getInfo()."</p>";
+
+echo $hilton->DisplayTableReservation();
+echo $ibisbudget->DisplayTableReservation();
+
 
 echo $hilton->get_all_reservation();
+echo $ibisbudget->get_all_reservation();
 
 echo $micka->display_all_reservations();
+echo $sebpot->display_all_reservations();
 
 // echo $hilton->get_all_rooms();
 // echo $micka->getReservation();

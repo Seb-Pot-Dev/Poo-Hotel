@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=$, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a45e9c27c8.js" crossorigin="anonymous"></script>
+    <title>My Hotels</title>
+</head>
+<body>
+    
+</body>
+</html>
 <?php
 spl_autoload_register(function ($class_name) {
 
@@ -26,7 +40,7 @@ class Client
             echo $reservation;
             $total+=$reservation->get_price_this_reservation();
         }
-        return "Total price for all reservations is ".$total." €";
+        return "Total price for is ".$total." €<br><br>";
     }
     // Add reservation considering its use in Class Reservation
     public function addReservation($reservation)

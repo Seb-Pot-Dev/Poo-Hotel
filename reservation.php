@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=$, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a45e9c27c8.js" crossorigin="anonymous"></script>
+    <title>My Hotels</title>
+</head>
+<body>
+    
+</body>
+</html>
 <?php
 spl_autoload_register(function ($class_name) {
 
@@ -55,15 +69,9 @@ Class Reservation
     {
         return $this->_checkout->format('d-m-Y');
     }
-
-    public function get_all_prices()
+    public function get_nb_nights()
     {
-        $result="Tout les prix";
-        foreach ($this->_all_prices as $price)
-        {
-            $result.= $price;
-        }
-        return $result;
+        return date_diff($this->checkin, $this->checkout);
     }
     
     // TO STRING
